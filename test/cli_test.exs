@@ -2,7 +2,7 @@ defmodule CliTest do
   use ExUnit.Case
   doctest Cli
 
-  test "greets the world" do
-    assert Cli.hello() == :world
+  test "it starts a game when promted" do
+    assert Cli.start_game() == :new_game
   end
 end
