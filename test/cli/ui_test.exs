@@ -66,5 +66,32 @@ ____________|____________|____________
             
     """
   end
+  
+  test "can display a full grid" do
+    assert Cli.Ui.display_grid([[:player1, :computer, :player1], [:computer, :computer, :player1], [:player1, :computer, :player1]]) == """
+            |            |            
+            |            |            
+            |            |            
+            |            |            
+            |            |            
+            |            |            
+            |            |            
+____________|____________|____________
+            |            |            
+            |            |            
+            |            |            
+            |            |            
+            |            |            
+            |            |            
+____________|____________|____________
+            |            |            
+            |            |            
+            |            |            
+            |            |            
+            |            |            
+            |            |            
+            |            |            
+    """
+  end
 
 end
