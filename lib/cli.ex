@@ -1,18 +1,5 @@
 defmodule Cli do
-  @moduledoc """
-  Documentation for Cli.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Cli.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def start_game() do
+    :new_game
   end
 end
