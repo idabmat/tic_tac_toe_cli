@@ -1,65 +1,23 @@
 defmodule Cli.UiTest do
   use ExUnit.Case
 
-  test "displays an empty grid" do
-    assert Cli.Ui.display_grid() == """
-            |            |            
-            |            |            
-            |            |            
-            |            |            
-            |            |            
-            |            |            
-____________|____________|____________
-            |            |            
-            |            |            
-            |            |            
-            |            |            
-            |            |            
-            |            |            
-____________|____________|____________
-            |            |            
-            |            |            
-            |            |            
-            |            |            
-            |            |            
-            |            |            
-            |            |            
-    """
-  end
-
   test "can display an O in a cell" do
-    assert Cli.Ui.cell(:computer) == """
-    ____    
-  ,' __ `.  
- / ,'  `. \ 
- | | () | | 
- \ `.__,' / 
-  `.____,'  
-    """
+    assert Cli.Ui.cell(:computer) == "O"
   end
 
   test "can display an X in a cell" do
-    assert Cli.Ui.cell(:player1) == """
-   .____,   
-  . \  / ,  
-  |`-  -'|  
-  |,-  -.|  
-  ' /__\ `  
-   '    `   
-    """
+    assert Cli.Ui.cell(:player1) == "X"
   end
 
   test "can display empty cell" do
-    assert Cli.Ui.cell(nil) == """
-            
-            
-            
-            
-            
-            
-    """
+    assert Cli.Ui.cell(nil) == " "
   end
-  
+
+  test "can display a row" do
+    row = [:player1, nil, :computer]
+    assert Cli.Ui.display_row(row) == "| X |   | O |\n"
+  end
+
   test "can display a full grid" do
     board = [
       [:player1, :computer, :player1],
@@ -67,26 +25,30 @@ ____________|____________|____________
       [:player1, :computer, :player1]
     ]
     assert Cli.Ui.display_grid(board) == """
-   .____,   |    ____    |   .____,   
-  . \  / ,  |  ,' __ `.  |  . \  / ,  
-  |`-  -'|  | / ,'  `. \ |  |`-  -'|  
-  |,-  -.|  | | | () | | |  |,-  -.|  
-  ' /__\ `  | \ `.__,' / |  ' /__\ `  
-   '    `   |  `.____,'  |   '    `   
-____________|____________|____________
-    ____    |    ____    |   .____,   
-  ,' __ `.  |  ,' __ `.  |  . \  / ,  
- / ,'  `. \ | / ,'  `. \ |  |`-  -'|  
- | | () | | | | | () | | |  |,-  -.|  
- \ `.__,' / | \ `.__,' / |  ' /__\ `  
-  `.____,'  |  `.____,'  |   '    `   
-____________|____________|____________
-   .____,   |    ____    |   .____,   
-  . \  / ,  |  ,' __ `.  |  . \  / ,  
-  |`-  -'|  | / ,'  `. \ |  |`-  -'|  
-  |,-  -.|  | | | () | | |  |,-  -.|  
-  ' /__\ `  | \ `.__,' / |  ' /__\ `  
-   '    `   |  `.____,'  |   '    `   
+    |---+---+---|
+    | X | O | X |
+    |---+---+---|
+    | O | O | X |
+    |---+---+---|
+    | X | O | X |
+    |---+---+---|
+    """
+  end
+
+  test "displays an empty grid" do
+    board = [
+      [nil, nil, nil],
+      [nil, nil, nil],
+      [nil, nil, nil]
+    ]
+    assert Cli.Ui.display_grid(board) == """
+    |---+---+---|
+    |   |   |   |
+    |---+---+---|
+    |   |   |   |
+    |---+---+---|
+    |   |   |   |
+    |---+---+---|
     """
   end
 end
