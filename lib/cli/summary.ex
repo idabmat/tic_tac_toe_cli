@@ -1,9 +1,9 @@
 defmodule Cli.Summary do
 
-  def display(%TicTacToe.Game{board: board, current_player: current_player}) do
+  def display(%TicTacToe.Game{board: board, current_player: current_player, winner: winner}) do
     board(board)
     <> "\n"
-    <> current_player(current_player)
+    <> status_line(winner, current_player)
     |> IO.puts
   end
 
@@ -14,9 +14,6 @@ defmodule Cli.Summary do
     <> board(t)
   end
 
-  defp current_player(:computer), do: "My turn."
-  defp current_player(:player1),  do: "Your turn."
-
   defp row_delimiter(), do: "|---+---+---|\n"
 
   defp row([]),    do: "|\n"
@@ -25,5 +22,15 @@ defmodule Cli.Summary do
   defp cell(:computer), do: "O"
   defp cell(:player1),  do: "X"
   defp cell(_),         do: " "
+
+  defp status_line(nil, player),  do: current_player(player)
+  defp status_line(winner, _),    do: announce_winner(winner)
+
+  defp current_player(:computer), do: "My turn."
+  defp current_player(:player1),  do: "Your turn."
+
+  defp announce_winner(:computer), do: "You lost."
+  defp announce_winner(:draw),     do: "It's a tie."
+  defp announce_winner(:player1),  do: "You won."
 
 end
