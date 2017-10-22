@@ -7,7 +7,7 @@ defmodule Cli.PromptTest do
       def gets("Your move: "), do: "5\n"
     end
 
-    assert Cli.Prompt.get_player_move(ValidMoveIO) == "5"
+    assert Cli.Prompt.get_player_move(ValidMoveIO) == 5
   end
 
   test "unrecognized player move" do

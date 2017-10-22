@@ -16,6 +16,7 @@ defmodule Cli.Prompt do
   end
   defp quit?(_), do: :continue
 
+  defp valid_player_move?("\n"), do: valid_player_move?(:eof)
   defp valid_player_move?(:eof) do
     IO.puts("Looks like you gave up ...")
     exit(:gave_up)
@@ -25,6 +26,7 @@ defmodule Cli.Prompt do
     cond do
       input =~ ~r/\A[1-9]\n\z/ ->
         String.trim(input)
+        |> String.to_integer
       true ->
         IO.puts("Invalid move.")
         get_player_move()
