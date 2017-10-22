@@ -1,21 +1,13 @@
-# Cli
+# TicTacToe - Cli
 
-**TODO: Add description**
+A CLI game client written in Elixir, uses the following game engine:
+
+  * [Game engine](https://github.com/idabmat/tic_tac_toe)
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `cli` to your list of dependencies in `mix.exs`:
+To play:
 
-```elixir
-def deps do
-  [
-    {:cli, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/cli](https://hexdocs.pm/cli).
-
+ * Install dependencies with `mix deps.get`
+ * Start iex with `iex -S mix`
+ * Start the game with `Cli.start_game()`
