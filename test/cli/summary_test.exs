@@ -1,6 +1,6 @@
 defmodule Cli.SummaryTest do
   use ExUnit.Case
-  alias Cli.Summary
+  import ExUnit.CaptureIO
 
   test "display the game summary" do
     state = %TicTacToe.Game{
@@ -13,7 +13,11 @@ defmodule Cli.SummaryTest do
       winner: nil
     }
 
-    assert Summary.display(state) == """
+    captured_output = capture_io(fn ->
+      Cli.Summary.display(state)
+    end)
+
+    assert captured_output == """
     |---+---+---|
     | X | O | X |
     |---+---+---|

@@ -4,7 +4,7 @@ defmodule Cli.Summary do
     board(board)
     <> "\n"
     <> current_player(current_player)
-    <> "\n"
+    |> IO.puts
   end
 
   defp board([]), do: row_delimiter()
