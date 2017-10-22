@@ -18,6 +18,7 @@ defmodule Cli.SummaryTest do
     end)
 
     assert captured_output == """
+
     |---+---+---|
     | X | O | X |
     |---+---+---|
@@ -46,6 +47,7 @@ defmodule Cli.SummaryTest do
     end)
 
     assert captured_output == """
+
     |---+---+---|
     | X | X |   |
     |---+---+---|
@@ -74,6 +76,7 @@ defmodule Cli.SummaryTest do
     end)
 
     assert captured_output == """
+
     |---+---+---|
     | X | X | O |
     |---+---+---|
@@ -102,6 +105,7 @@ defmodule Cli.SummaryTest do
     end)
 
     assert captured_output == """
+
     |---+---+---|
     | X | O | O |
     |---+---+---|

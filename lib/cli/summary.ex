@@ -1,7 +1,8 @@
 defmodule Cli.Summary do
 
   def display(%TicTacToe.Game{board: board, current_player: current_player, winner: winner}) do
-    board(board)
+    "\n"
+    <> board(board)
     <> "\n"
     <> status_line(winner, current_player)
     |> IO.puts
