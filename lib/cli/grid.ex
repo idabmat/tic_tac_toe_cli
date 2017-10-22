@@ -1,4 +1,4 @@
-defmodule Cli.Ui do
+defmodule Cli.Grid do
   def cell(:computer), do: "O"
   def cell(:player1),  do: "X"
   def cell(_),         do: " "

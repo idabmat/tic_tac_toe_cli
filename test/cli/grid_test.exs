@@ -1,21 +1,22 @@
-defmodule Cli.UiTest do
+defmodule Cli.GridTest do
   use ExUnit.Case
+  alias Cli.Grid
 
   test "can display an O in a cell" do
-    assert Cli.Ui.cell(:computer) == "O"
+    assert Grid.cell(:computer) == "O"
   end
 
   test "can display an X in a cell" do
-    assert Cli.Ui.cell(:player1) == "X"
+    assert Grid.cell(:player1) == "X"
   end
 
   test "can display empty cell" do
-    assert Cli.Ui.cell(nil) == " "
+    assert Grid.cell(nil) == " "
   end
 
   test "can display a row" do
     row = [:player1, nil, :computer]
-    assert Cli.Ui.display_row(row) == "| X |   | O |\n"
+    assert Grid.display_row(row) == "| X |   | O |\n"
   end
 
   test "can display a full grid" do
@@ -24,7 +25,7 @@ defmodule Cli.UiTest do
       [:computer, :computer, :player1],
       [:player1, :computer, :player1]
     ]
-    assert Cli.Ui.display_grid(board) == """
+    assert Grid.display_grid(board) == """
     |---+---+---|
     | X | O | X |
     |---+---+---|
@@ -41,7 +42,7 @@ defmodule Cli.UiTest do
       [nil, nil, nil],
       [nil, nil, nil]
     ]
-    assert Cli.Ui.display_grid(board) == """
+    assert Grid.display_grid(board) == """
     |---+---+---|
     |   |   |   |
     |---+---+---|
