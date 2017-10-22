@@ -1,5 +1,5 @@
 defmodule Cli do
   def start_game() do
-    :new_game
+    Cli.Game.start()
   end
 end
