@@ -1,4 +1,4 @@
-defmodule TestHelpers.FakeEngine.Game do
+defmodule FakeEngine.Game do
   defstruct(
     winner: nil,
     current_player: nil,
@@ -10,8 +10,8 @@ defmodule TestHelpers.FakeEngine.Game do
   )
 end
 
-defmodule TestHelpers.FakeEngine do
-  alias TestHelpers.FakeEngine.Game
+defmodule FakeEngine do
+  alias FakeEngine.Game
 
   def start_link() do
     Agent.start_link(fn -> {1, 1} end, name: __MODULE__)

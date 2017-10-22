@@ -1,2 +1,2 @@
 use Mix.Config
-config :cli, :tic_tac_toe, TestHelpers.FakeEngine
+config :cli, :tic_tac_toe, FakeEngine
