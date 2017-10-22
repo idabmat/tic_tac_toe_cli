@@ -9,5 +9,4 @@ A CLI game client written in Elixir, uses the following game engine:
 To play:
 
  * Install dependencies with `mix deps.get`
- * Start iex with `iex -S mix`
- * Start the game with `Cli.start_game()`
+ * Run the game with `mix`
