@@ -1,6 +1,7 @@
 defmodule Cli.Summary do
+  @engine Application.get_env(:cli, :tic_tac_toe)
 
-  def display(%TicTacToe.Game{board: board, current_player: current_player, winner: winner}) do
+  def display(%@engine.Game{board: board, current_player: current_player, winner: winner}) do
     "\n"
     <> board(board)
     <> "\n"

@@ -1,9 +1,11 @@
 defmodule Cli.SummaryTest do
+  @engine Application.get_env(:cli, :tic_tac_toe)
+
   use ExUnit.Case
   import ExUnit.CaptureIO
 
   test "game in progress summary" do
-    state = %TicTacToe.Game{
+    state = %@engine.Game{
       current_player: :player1,
       board: [
         [:player1 , :computer, :player1],
@@ -32,7 +34,7 @@ defmodule Cli.SummaryTest do
   end
 
   test "computer won" do
-    state = %TicTacToe.Game{
+    state = %@engine.Game{
       current_player: :player1,
       board: [
         [:player1 , :player1 , nil      ],
@@ -61,7 +63,7 @@ defmodule Cli.SummaryTest do
   end
 
   test "a tie" do
-    state = %TicTacToe.Game{
+    state = %@engine.Game{
       current_player: :computer,
       board: [
         [:player1 , :player1 , :computer ],
@@ -90,7 +92,7 @@ defmodule Cli.SummaryTest do
   end
 
   test "player won" do
-    state = %TicTacToe.Game{
+    state = %@engine.Game{
       current_player: :computer,
       board: [
         [:player1 , :computer, :computer ],
